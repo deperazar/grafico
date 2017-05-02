@@ -25,7 +25,7 @@ public class Painting extends JFrame {
     public static void main(String[] args) {
         Painting cuadro= new Painting();
         cuadro.setTitle("TestPaintComponent");
-        cuadro.setSize(600, 700);
+        cuadro.setSize(2000, 700);
         cuadro.setLocationRelativeTo(null);
         cuadro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         cuadro.setVisible(true);
@@ -34,13 +34,15 @@ public class Painting extends JFrame {
     class nuevoPanel extends JPanel implements ActionListener{
         
         private Timer time;
-        
-        int x;
-        int y;
+        private int o;
+        private int y;
         
         public nuevoPanel(){
-            this.time=new Timer(25,this);
+            
+            this.time=new Timer(2,this);
             this.time.start();
+            this.o=20;
+            
         }
         
     @Override
@@ -48,44 +50,22 @@ public class Painting extends JFrame {
         super.paintComponent(g);
                 
         g.setColor(Color.blue);
-        int x[]={40,80,120,160,200,200,0,0,40};
+        int x[]={o+40,o+80,o+120,o+160,o+200,o+200,o+0,o+0,o+40};
         int y[]={80,40,40,80,80,120,120,80,80};
         g.fillPolygon(x, y, 9);
    
         g.setColor(Color.black);
-        g.fillOval(40, 120, 40, 40);
-        g.fillOval(120, 120, 40, 40);
+        g.fillOval(o+40, 120, 40, 40);
+        g.fillOval(o+120, 120, 40, 40);
         
-        g.drawRect(0, 0, 201, 161);
+        g.drawRect(o+0, 0, 201, 161);
         
-        g.setColor(Color.blue);
-        int w[]={60,100,140,180,220,220,20,20,60};
-        int c[]={80,40,40,80,80,120,120,80,80};
-        g.fillPolygon(w, c, 9);
-   
-        g.setColor(Color.black);
-        g.fillOval(60, 120, 40, 40);
-        g.fillOval(140, 120, 40, 40);
-        
-        g.drawRect(20, 0, 201, 161);
-        
-        g.setColor(Color.blue);
-        int q[]={80,120,160,200,240,240,40,40,80};
-        int e[]={80,40,40,80,80,120,120,80,80};
-        g.fillPolygon(q, e, 9);
-   
-        g.setColor(Color.black);
-        g.fillOval(80, 120, 40, 40);
-        g.fillOval(160, 120, 40, 40);
-        
-        g.drawRect(40, 0, 201, 161);
         System.out.println("CLICK");
 
     }
         @Override
         public void actionPerformed(ActionEvent e){
-            x+=1;
-            y+=1;
+            o+=1;
             repaint();
         }
     }
