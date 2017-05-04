@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.*;
 import java.awt.Graphics;
 
+
 public class TextPaintComponent extends JFrame{
     
     public TextPaintComponent(){
@@ -23,7 +24,7 @@ public class TextPaintComponent extends JFrame{
 
 class NewPanel extends JPanel{
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent (Graphics g){
         super.paintComponent(g);
                 
         g.drawString("PUNTOS: 100", 500, 70);
@@ -40,7 +41,21 @@ class NewPanel extends JPanel{
         
         g.fillOval(250, 350, 35, 50);
         g.setColor(Color.red);
-        g.fillRoundRect(200, 400, 100, 200, 10, 10);
+        g.fillRoundRect(242, 400, 50, 100, 10, 10);
+        
+        g.fillRoundRect(232, 405, 10, 70, 10, 10);
+        g.fillRoundRect(292, 405, 10, 70, 10, 10);
+        
+        g.setColor(Color.blue);
+        g.fillRoundRect(242, 500, 20, 70, 10, 10);
+        g.fillRoundRect(272, 500, 20, 70, 10, 10);
+        
+        
+        g.setColor(Color.lightGray);
+        g.fillRoundRect(240, 570, 22, 10, 5, 5);
+        g.fillRoundRect(274, 570, 22, 10, 5, 5);
+       
+    }
+        
         
     }
-}
